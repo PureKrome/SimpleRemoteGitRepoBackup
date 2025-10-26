@@ -1,4 +1,4 @@
-# SimpleRemoteGitRepoBackup
+# Simple: Remote Git Repo Backup
 
 A cross-platform console application for backing up Git repositories to local storage.
 
