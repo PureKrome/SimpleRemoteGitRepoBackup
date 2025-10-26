@@ -46,9 +46,9 @@ jobs:
             dotnet publish ./code/SimpleRemoteGitRepoBackup.Console/WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
             ls -al ./artifacts/${{ matrix.runtime }}/
             if [ "${{ matrix.runtime }}" == "win-x64" ]; then
-              mv ./publish/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}.exe
+              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}.exe
             else
-              mv ./publish/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}
+              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}
             fi
 
       - name: Publish artifacts
