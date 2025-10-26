@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.GitHub", "WorldDomination.CodeBackup.GitHub\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.csproj", "{1D4C58D6-672F-44A0-A873-B78B00F69A13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.Core", "WorldDomination.CodeBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj", "{D85C1053-5F27-0C4B-8B35-D33968382458}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.Console", "WorldDomination.CodeBackup.Console\WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj", "{839A4A08-B7B2-B605-21A5-B5144BCAB06E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.GitHub.Tests", "WorldDomination.CodeBackup.GitHub.Tests\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.Tests.csproj", "{B03117AC-02E8-8A6A-C81A-5C1BD3BC4DDC}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -37,28 +29,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\Release.yml = .github\workflows\Release.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.Core", "code\SimpleRemoteGitRepoBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj", "{6FFA6709-E111-AF8F-7E2A-291767D4BACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.GitHub", "code\SimpleRemoteGitRepoBackup.GitHub\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.csproj", "{98B7F329-1B93-9DE1-14CF-8AF747EB4363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.GitHub.Tests", "code\SimpleRemoteGitRepoBackup.GitHub.Tests\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.Tests.csproj", "{CC15C76D-CA83-89C0-1151-7946094976AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.Console", "code\SimpleRemoteGitRepoBackup.Console\WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj", "{A9824231-13E4-0BF4-9C44-80A8EF6034A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1D4C58D6-672F-44A0-A873-B78B00F69A13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1D4C58D6-672F-44A0-A873-B78B00F69A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1D4C58D6-672F-44A0-A873-B78B00F69A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1D4C58D6-672F-44A0-A873-B78B00F69A13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D85C1053-5F27-0C4B-8B35-D33968382458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D85C1053-5F27-0C4B-8B35-D33968382458}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D85C1053-5F27-0C4B-8B35-D33968382458}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D85C1053-5F27-0C4B-8B35-D33968382458}.Release|Any CPU.Build.0 = Release|Any CPU
-		{839A4A08-B7B2-B605-21A5-B5144BCAB06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{839A4A08-B7B2-B605-21A5-B5144BCAB06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{839A4A08-B7B2-B605-21A5-B5144BCAB06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{839A4A08-B7B2-B605-21A5-B5144BCAB06E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B03117AC-02E8-8A6A-C81A-5C1BD3BC4DDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B03117AC-02E8-8A6A-C81A-5C1BD3BC4DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B03117AC-02E8-8A6A-C81A-5C1BD3BC4DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B03117AC-02E8-8A6A-C81A-5C1BD3BC4DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFA6709-E111-AF8F-7E2A-291767D4BACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFA6709-E111-AF8F-7E2A-291767D4BACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFA6709-E111-AF8F-7E2A-291767D4BACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFA6709-E111-AF8F-7E2A-291767D4BACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98B7F329-1B93-9DE1-14CF-8AF747EB4363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98B7F329-1B93-9DE1-14CF-8AF747EB4363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98B7F329-1B93-9DE1-14CF-8AF747EB4363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98B7F329-1B93-9DE1-14CF-8AF747EB4363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC15C76D-CA83-89C0-1151-7946094976AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC15C76D-CA83-89C0-1151-7946094976AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC15C76D-CA83-89C0-1151-7946094976AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC15C76D-CA83-89C0-1151-7946094976AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9824231-13E4-0BF4-9C44-80A8EF6034A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9824231-13E4-0BF4-9C44-80A8EF6034A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9824231-13E4-0BF4-9C44-80A8EF6034A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9824231-13E4-0BF4-9C44-80A8EF6034A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

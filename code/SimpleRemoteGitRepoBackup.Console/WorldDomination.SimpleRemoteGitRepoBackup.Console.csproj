@@ -26,10 +26,9 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.2" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
   </ItemGroup>
-
+  
   <ItemGroup>
-    <ProjectReference Include="..\WorldDomination.CodeBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj" />
-    <ProjectReference Include="..\WorldDomination.CodeBackup.GitHub\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.csproj" />
+    <ProjectReference Include="..\SimpleRemoteGitRepoBackup.GitHub\WorldDomination.SimpleRemoteGitRepoBackup.GitHub.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WorldDomination.CodeBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj" />
+    <ProjectReference Include="..\SimpleRemoteGitRepoBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj" />
   </ItemGroup>
 
 </Project>
