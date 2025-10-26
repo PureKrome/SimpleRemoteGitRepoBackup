@@ -42,7 +42,13 @@ jobs:
       - run: dotnet build --configuration Release -p:ContinuousIntegrationBuild=true -p:version=${{ env.RELEASE_VERSION }}
 
       - name: Publish for ${{ matrix.runtime }}
-        run:  dotnet publish ./code/SimpleRemoteGitRepoBackup.Console/WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
+        run: |
+            dotnet publish ./code/SimpleRemoteGitRepoBackup.Console/WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
+            if [ "${{ matrix.runtime }}" == "win-x64" ]; then
+              mv ./publish/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}.exe
+            else
+              mv ./publish/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}
+            fi
 
       - name: Publish artifacts
         uses: actions/upload-artifact@v5
@@ -57,4 +63,4 @@ jobs:
         with:
           name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}.{{ matrix.runtime }}
           files: ./artifacts/${{ matrix.runtime }}/*
-          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          body_path: ${{ github.workspace }}-ChangeLog.md
