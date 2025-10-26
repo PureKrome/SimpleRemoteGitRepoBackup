@@ -1,4 +1,4 @@
-name: Publish to Nuget.org and GPR
+name: Publish Console Apps
 
 on:
   push:
@@ -19,9 +19,12 @@ env:
   DOTNET_NOLOGO: true
 
 jobs:
-  build_and_create_a_nuget_publish:
-    name: Build, Create a NuGet and Publish
+  build_and_create_a_console_apps:
+    name: Build, Create a Console App
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runtime: [win-x64, linux-x64, osx-x64]
 
     steps:
 
@@ -36,33 +39,21 @@ jobs:
 
       - run: dotnet restore --verbosity minimal
 
-      - run: dotnet build --configuration Release -p:ContinuousIntegrationBuild=true -p:DebugType=Embedded -p:version=${{ env.RELEASE_VERSION }}
+      - run: dotnet build --configuration Release -p:ContinuousIntegrationBuild=true -p:version=${{ env.RELEASE_VERSION }}
 
-      - run: dotnet pack --configuration Release --no-build --output ./artifacts -p:DebugType=Embedded -p:version=${{ env.RELEASE_VERSION }}
+      - name: Publish for ${{ matrix.runtime }}
+        run: dotnet publish --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
 
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: NuGetPackage.${{ env.RELEASE_VERSION }}
-          path: ./artifacts/
+          name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}.${{ matrix.runtime }}
+          path: ./artifacts/${{ matrix.runtime }}/
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: NuGetPackage.${{ env.RELEASE_VERSION }}
-          files: ./artifacts/*
-
-      - name: Publish to GPR
-        run: |
-          dotnet nuget push "./artifacts/*.nupkg" \
-            --no-symbols \
-            --api-key ${{ secrets.GITHUB_TOKEN }} \
-            --source https://nuget.pkg.github.com/${{ github.repository_owner }}
-
-      - name: Publish to nuget.org
-        run: |
-          dotnet nuget push "./artifacts/*.nupkg" \
-            --api-key ${{ secrets.NUGET_TOKEN }} \
-            --source https://api.nuget.org/v3/index.json
+          name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}
+          files: ./artifacts/${{ matrix.runtime }}/*
