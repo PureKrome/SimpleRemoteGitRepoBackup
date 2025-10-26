@@ -46,9 +46,9 @@ jobs:
             dotnet publish ./code/SimpleRemoteGitRepoBackup.Console/WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
             ls -al ./artifacts/${{ matrix.runtime }}/
             if [ "${{ matrix.runtime }}" == "win-x64" ]; then
-              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./artifacts/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}.exe
+              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./artifacts/SimpleRemoteGitRepoBackup.${{ env.RELEASE_VERSION }}.${{ matrix.runtime }}.exe
             else
-              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup ./artifacts/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}
+              mv ./artifacts/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup ./artifacts/SimpleRemoteGitRepoBackup.${{ env.RELEASE_VERSION }}.${{ matrix.runtime }}
             fi
 
       - name: Publish artifacts
@@ -64,4 +64,4 @@ jobs:
         with:
           name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}.{{ matrix.runtime }}
           files: ./artifacts/${{ matrix.runtime }}/*
-          body_path: ${{ github.workspace }}-ChangeLog.md
+          body_path: ${{ github.workspace }}/ChangeLog.md
