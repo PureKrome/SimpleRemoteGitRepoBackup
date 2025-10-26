@@ -44,6 +44,7 @@ jobs:
       - name: Publish for ${{ matrix.runtime }}
         run: |
             dotnet publish ./code/SimpleRemoteGitRepoBackup.Console/WorldDomination.SimpleRemoteGitRepoBackup.Console.csproj --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
+            ls -al ./artifacts/${{ matrix.runtime }}/
             if [ "${{ matrix.runtime }}" == "win-x64" ]; then
               mv ./publish/${{ matrix.runtime }}/SimpleRemoteGitRepoBackup.exe ./publish/SimpleRemoteGitRepoBackup-${{ matrix.runtime }}.exe
             else
