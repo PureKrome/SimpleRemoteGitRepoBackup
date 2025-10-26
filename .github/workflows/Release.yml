@@ -42,7 +42,7 @@ jobs:
       - run: dotnet build --configuration Release -p:ContinuousIntegrationBuild=true -p:version=${{ env.RELEASE_VERSION }}
 
       - name: Publish for ${{ matrix.runtime }}
-        run: dotnet publish --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }}
+        run: dotnet publish .\WorldDomination.SimpleRemoteGitRepoBackup.Console\WorldDomination.CodeBackup.Console.csproj  --configuration Release --output ./artifacts/${{ matrix.runtime }} -r ${{ matrix.runtime }} -p:AssemblyName="SimpleRemoteGitRepoBackup"
 
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
