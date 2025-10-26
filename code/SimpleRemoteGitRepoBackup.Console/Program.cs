@@ -75,6 +75,8 @@ try
             {
                 var githubLogger = scope.ServiceProvider.GetRequiredService<ILogger<GitHubRepositoryProvider>>();
 
+                var client = new GitHubClient(new ProductHeaderValue("CodeBackupApp"));
+
                 // If we don't provide any credentials for GH then we are limited
                 // in accessing only public repositories and have very low rate limits.
                 var credentials = string.IsNullOrWhiteSpace(options.Token)
@@ -85,11 +87,11 @@ try
                 {
                     logger.LogWarning("⚠️⚠️⚠️ No GitHub Personal Access Token provided. Only public repositories can be accessed, and rate limits will be low.");
                 }
-
-                var client = new GitHubClient(new ProductHeaderValue("CodeBackupApp"))
+                
+                if (credentials != null)
                 {
-                    Credentials = credentials
-                };
+                    client.Credentials = credentials;
+                }
 
                 var fileSystem = new FileSystemWrapper();
 
