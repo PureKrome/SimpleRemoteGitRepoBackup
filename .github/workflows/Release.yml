@@ -55,5 +55,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}
+          name: SimpleRemoteGitBackup.${{ env.RELEASE_VERSION }}.{{ matrix.runtime }}
           files: ./artifacts/${{ matrix.runtime }}/*
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
