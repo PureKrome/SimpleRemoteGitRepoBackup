@@ -24,9 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{93B0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E0EB174F-3281-4662-B2B4-C6D430B78677}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\MergeToMain.yml = .github\workflows\MergeToMain.yml
-		.github\workflows\PullRequest.yml = .github\workflows\PullRequest.yml
 		.github\workflows\Release.yml = .github\workflows\Release.yml
+		.github\workflows\PullRequestorMergeToMain.yml = .github\workflows\PullRequestorMergeToMain.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldDomination.SimpleRemoteGitRepoBackup.Core", "code\SimpleRemoteGitRepoBackup.Core\WorldDomination.SimpleRemoteGitRepoBackup.Core.csproj", "{6FFA6709-E111-AF8F-7E2A-291767D4BACF}"
